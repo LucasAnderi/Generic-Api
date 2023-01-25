@@ -49,6 +49,8 @@ public class GameDaoImpl implements GameDao<Game> {
 
                 game.setReleaseDate(resultSet.getString("data_lancamento"));
 
+                items.add(game);
+
             }
 
         } catch (SQLException e) {
@@ -88,7 +90,7 @@ public class GameDaoImpl implements GameDao<Game> {
                 item.setDevelopedBy(resultSet.getString("desenvolvido_por"));
                 item.setReleaseDate(resultSet.getString("data_lancamento"));
 
-                String gameType = resultSet.getString("tipo");
+                String gameType = resultSet.getString("genero");
                 item.setType(GameType.valueOf(gameType));
 
             }
@@ -110,10 +112,10 @@ public class GameDaoImpl implements GameDao<Game> {
 
         int id = -1;
 
-        String sql = "INSERT INTO game(genero, ";
+        String sql = "INSERT INTO jogo(genero, ";
         sql += " nome, descricao, preco, desenvolvido_por, ";
         sql += " data_lancamento, plataforma, imagem_principal, ";
-        sql += " criado_em, criado_por, ultima_modificacao ";
+        sql += " criado_em, criado_por, ultima_modificacao) ";
         sql += " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try{
@@ -168,8 +170,8 @@ public class GameDaoImpl implements GameDao<Game> {
 
         String sql ="UPDATE jogo SET nome = ?, ";
         sql += "ultima_modificacao = ?, descricao = ?";
-        sql += "WHERE";
-        sql += "id = ?;";
+        sql += "WHERE ";
+        sql += " id = ?;";
 
         try {
             connection = ConnectionFactory.getConnection();

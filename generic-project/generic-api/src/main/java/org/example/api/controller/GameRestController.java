@@ -1,6 +1,7 @@
 package org.example.api.controller;
 
 
+import org.example.api.service.GameRestService;
 import org.example.model.entities.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +56,7 @@ public class GameRestController {
     public ResponseEntity<Boolean> update(@PathVariable("id") final int id,@RequestBody final Game entity){
         boolean response = gameService.update(id,entity);
 
-        return response ? ResponseEntity.ok(response);
+        return response ? ResponseEntity.ok(response) : ResponseEntity.badRequest().build();
     }
 
 

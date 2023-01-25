@@ -1,7 +1,7 @@
 package org.example.api.service.impl;
 
 
-import org.example.api.service.BaseRestService;
+import org.example.api.service.GameRestService;
 import org.example.db.dao.GameDao;
 import org.example.model.entities.Game;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 
 //Deixamos sem UserRestService por enquanto pois não foi necessário
 @Service
-public class GameRestServiceImpl implements BaseRestService<Game> {
+public class GameRestServiceImpl implements GameRestService<Game> {
 
     @Autowired
     private GameDao gameDao;

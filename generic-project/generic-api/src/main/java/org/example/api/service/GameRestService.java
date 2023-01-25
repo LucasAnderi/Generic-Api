@@ -2,7 +2,7 @@ package org.example.api.service;
 
 import java.util.List;
 
-public interface BaseRestService<T> {
+public interface GameRestService<T> {
 
     List<T> find();
 
