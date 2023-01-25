@@ -180,9 +180,11 @@ public class GameDaoImpl implements GameDao<Game> {
 
             preparedStatement.setString(1, entity.getName());
 
-            preparedStatement.setTimestamp(2,new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
 
-            preparedStatement.setString(3,entity.getDescription());
+            preparedStatement.setString(3, entity.getDescription());
+
+            preparedStatement.setInt(4, entity.getId());
 
             preparedStatement.execute();
             connection.commit();
